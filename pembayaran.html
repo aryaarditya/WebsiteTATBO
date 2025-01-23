@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembayaran</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: #333;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 90%;
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: #444;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+        ul li a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        ul li a:hover {
+            color: #0056b3;
+        }
+        .back-button {
+            margin-top: 20px;
+            padding: 12px 20px;
+            background: #ff4d4d; /* Warna merah */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            text-decoration: none;
+            display: block; /* Mengubah tombol menjadi elemen blok */
+            width: 100%; /* Lebar penuh */
+            box-sizing: border-box; /* Menjaga padding tetap di dalam width */
+            transition: background 0.3s ease;
+        }
+        .back-button:hover {
+            background: #cc0000; /* Warna merah lebih gelap saat hover */
+        }
+        .info {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            font-size: 1.1em;
+            display: none; /* Awalnya tersembunyi */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pilih Bank Pembayaran</h1>
+        <ul id="bankList">
+            <li><a href="#" onclick="selectBank()">Bank Mandiri</a></li>
+            <li><a href="#" onclick="alert('Bank ini belum tersedia.')">Bank BCA</a></li>
+            <li><a href="#" onclick="alert('Bank ini belum tersedia.')">Bank BRI</a></li>
+            <li><a href="#" onclick="alert('Bank ini belum tersedia.')">Bank CIMB Niaga</a></li>
+            <li><a href="#" onclick="alert('Bank ini belum tersedia.')">Bank BTN</a></li>
+        </ul>
+        <!-- Kontainer informasi -->
+        <div class="info" id="bankInfo">
+            <p><strong>No. Rekening:</strong> 440001223345</p>
+            <p><strong>Atas Nama:</strong> Universitas ABC</p>
+            <p><strong>Uang Pendaftaran:</strong> Rp. 50.000</p>
+        </div>
+        <!-- Tombol kembali -->
+        <a href="kodingan.html" class="back-button"><i class="fas fa-arrow-left"></i> Kembali</a>
+    </div>
+
+    <script>
+        // Fungsi untuk menampilkan informasi Bank Mandiri dan menyembunyikan bank lain
+        function selectBank() {
+            // Ambil elemen info
+            const bankInfo = document.getElementById('bankInfo');
+            // Ambil semua elemen daftar
+            const allBanks = document.querySelectorAll('#bankList li');
+            
+            // Loop melalui semua elemen daftar untuk menyembunyikannya
+            allBanks.forEach(bank => {
+                bank.style.display = 'none';
+            });
+
+            // Tampilkan elemen info
+            bankInfo.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

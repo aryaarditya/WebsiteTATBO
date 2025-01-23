@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Data Diri</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: #333;
+        }
+        .form-container, .success-container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+        }
+        h1, h2 {
+            color: #444;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1em;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            font-size: 1em;
+            font-weight: 500;
+            border: none;
+            border-radius: 8px;
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .back-button {
+            background: #dc3545;
+            margin-top: 10px;
+        }
+        .back-button:hover {
+            background: #c82333;
+        }
+        .success-container {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Formulir -->
+    <div class="form-container" id="formContainer">
+        <h1>Formulir Data Diri</h1>
+        <form id="dataForm">
+            <div class="form-group">
+                <label for="name">Nama Lengkap:</label>
+                <input type="text" id="name" name="name" placeholder="Masukkan nama lengkap" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Masukkan email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">No. Telepon:</label>
+                <input type="tel" id="phone" name="phone" placeholder="Masukkan nomor telepon" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Alamat:</label>
+                <textarea id="address" name="address" rows="4" placeholder="Masukkan alamat lengkap" required></textarea>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        <button class="back-button" onclick="window.location.href='kodingan.html'">Kembali</button>
+    </div>
+
+    <!-- Pesan Berhasil -->
+    <div class="success-container" id="successContainer">
+        <h2>Formulir Anda berhasil dikirim!</h2>
+        <button onclick="window.location.href='kodingan.html'">Kembali ke Halaman Utama</button>
+    </div>
+
+    <script>
+        // Tangkap elemen form dan kontainer
+        const formContainer = document.getElementById('formContainer');
+        const successContainer = document.getElementById('successContainer');
+        const dataForm = document.getElementById('dataForm');
+
+        // Tangani submit form
+        dataForm.addEventListener('submit', function (event) {
+            event.preventDefault(); // Mencegah pengiriman form
+            formContainer.style.display = 'none'; // Sembunyikan form
+            successContainer.style.display = 'block'; // Tampilkan pesan sukses
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unggah Dokumen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: #333;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 90%;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #444;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label {
+            margin-top: 10px;
+            font-size: 1em;
+            color: #555;
+        }
+        input[type="file"] {
+            margin: 15px 0;
+            font-size: 1em;
+            padding: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px 20px;
+            font-size: 1em;
+            font-weight: 500;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .upload-button {
+            background: #007bff;
+            color: white;
+            margin-top: 20px;
+        }
+        .upload-button:hover {
+            background: #0056b3;
+        }
+        .back-button {
+            background: #ff4d4d;
+            color: white;
+            margin-top: 15px;
+        }
+        .back-button:hover {
+            background: #cc0000;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #28a745;
+            display: none; /* Awalnya tersembunyi */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Unggah Dokumen</h2>
+        <form id="uploadForm">
+            <label for="ktpUpload">KTP (PDF):</label>
+            <input type="file" id="ktpUpload" name="ktpUpload" accept="application/pdf" required>
+
+            <label for="kkUpload">Kartu Keluarga (PDF):</label>
+            <input type="file" id="kkUpload" name="kkUpload" accept="application/pdf" required>
+
+            <label for="ijazahUpload">Ijazah SMA (PDF):</label>
+            <input type="file" id="ijazahUpload" name="ijazahUpload" accept="application/pdf" required>
+
+            <label for="raporUpload">Rekap Nilai Rapor (Sem 1-6) (PDF):</label>
+            <input type="file" id="raporUpload" name="raporUpload" accept="application/pdf" required>
+
+            <button type="submit" class="upload-button">Upload</button>
+        </form>
+        <p class="message" id="uploadMessage">Dokumen telah diupload!</p>
+        <button class="back-button" onclick="window.location.href='kodingan.html'">Kembali ke Halaman Utama</button>
+    </div>
+
+    <script>
+        // Tangkap elemen form dan pesan
+        const uploadForm = document.getElementById('uploadForm');
+        const uploadMessage = document.getElementById('uploadMessage');
+
+        // Tangani submit form
+        uploadForm.addEventListener('submit', function (event) {
+            event.preventDefault(); // Mencegah pengiriman form
+
+            // Tampilkan pesan sukses
+            uploadMessage.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
